@@ -119,3 +119,55 @@ This code is also heavily commented. We recommend reading through the comments, 
 ## Update Documentation
 
 Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
+
+
+
+## Checklist
+
+[x] Set up the server and database
+     - pool, router,node/express
+[] Set the routes in app.js
+[] Create the home page
+     -sign in (name, password)
+    
+[] Add the account page
+     -username, password
+
+[] Create the prediction page
+     -Title of the page
+     -Add datepicker
+     -Add go button
+     -GET method(populates the matches based on date selected)
+     -Saga for GET prediction metheod
+     -reducer for the GET prediction method
+     -include Dropdown to select teams
+     -POST method(Adds the user prediction to the predictions Database)
+     -saga for the POST prediction method
+     -reducer for the POST  method******GET
+     -Add submit button to post the prediction
+
+[] Set up the Summary of predictions view page
+     -Include the title of the page
+     -GET method(populates the prediction based on a user id)
+     -saga for the GET summary of prediction method
+     -reducer for the GET summary od prediction method
+     -Add edit button(inline)
+     -POST method(Submits the final pick to the prediction table
+     -saga for the Post final prediction method***
+     -reducer for the final prediction method****GET
+[] Create the Admin Page
+     -usename, password
+     -log in to set up an admin user
+[] Create  Results Page
+     -Add date picker and a button
+     -GET method(Gets fixtures from the database based on the date)
+     -saga for the GET results method
+     -reducer for the GET results method
+     -POST method(posts the results of the winning team to the fixtures table)
+     -saga for the POST 
+
+[] Winners Page
+
+     -Add a table to display winners/losers based on user
+     -Displays the points amassed.
+     -Add a button to take you to the home page.
