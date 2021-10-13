@@ -4,17 +4,17 @@ import {put, takeLatest} from 'redux-saga/effects';
 
 function* fetchFixtures(){
     try{
-        const fixtureResponse = yield axios.get('/api/fixture')
-        console.log("in FetchFixtures", fixtureResponse.data)
-        yield put({type: 'SET_FIXTURES', payload: fixtureResponse});
+        const response = yield axios.get('/api/fixture')
+        console.log("in FetchFixtures", response.data)
+        yield put({type: 'SET_FIXTURES', payload: response.data});
 
     }catch(error){
         console.log('Failed getting the fixtures', error);
     }
 }
 
-function* fetchSaga(){
+function* fetchFixturesSaga(){
     yield takeLatest('FETCH_FIXTURES', fetchFixtures)
 }
 
-export default fetchSaga
+export default fetchFixturesSaga

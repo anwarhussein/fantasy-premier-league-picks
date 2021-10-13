@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import  { useDispatch, useSelector } from 'react-redux'; 
+import useReduxStore from '../../hooks/useReduxStore';
 // This is one of our simplest components
 // It doesn't have local state
 // It doesn't dispatch any redux actions or display any part of redux state
@@ -7,11 +8,8 @@ import  { useDispatch, useSelector } from 'react-redux';
 
 function Prediction() {
   
-  const fixtureListStore = useSelector(store => store);
-
-  const {setFixture} = fixtureListStore
-
-
+  const store = useReduxStore();
+  
  // const [fixtures, setFixtures] = useState([]);
   const dispatch = useDispatch();
  
@@ -25,8 +23,8 @@ function Prediction() {
       <h2>Start your prediction</h2>
       {/* <input type="date" value={dateValue} onChange={(event) =>setDateValue(event.target.value)}/> */}
       
-      {setFixture.map((fixture) =>{
-        return <li key={fixture.id}>{fixture.home_team} vs {fixture.away_team}</li>
+      {store.setFixtures.map((fixture) =>{
+        return <li key={fixture.id}>{fixture.home_team} vs {fixture.away_team} </li>
 
       })}
      
