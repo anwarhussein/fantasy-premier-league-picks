@@ -22,10 +22,15 @@ function Prediction() {
 
   }, [])
 
+  const fixtureDates = (event) =>{
+    console.log(event.target.value);
+    setSearchDate(event.target.value)
+  }
+
   return (
     <div className="container">
       <h2>Start your prediction</h2>
-      <input type="date" value={searchDate} onChange={(event) => setSearchDate(event.target.value)} />
+      <input type="date" value={searchDate} onChange={fixtureDates} />
 
       {/* <button onClick={() => handleClick}>Go</button> */}
 
