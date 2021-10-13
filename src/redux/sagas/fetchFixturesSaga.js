@@ -4,7 +4,7 @@ import {put, takeLatest} from 'redux-saga/effects';
 
 function* fetchFixtures(){
     try{
-        const fixtureResponse = yield axios.get()
+        const fixtureResponse = yield axios.get(`/api/fixtures/${date}`)
         console.log("in FetchFixtures", fixtureResponse.data)
         yield put({type: 'SET_FIXTURES', payload:fixtureResponse});
 
@@ -16,3 +16,5 @@ function* fetchFixtures(){
 function* fetchSaga(){
     yield takeLatest('FETCH_FIXTURES', fetchFixtures)
 }
+
+export default fetchSaga
