@@ -1,20 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
 import PredictionDetail from '../PredictionDetail/PredictionDetail';
-import { useState,useEffect } from 'react';
-// This is one of our simplest components
-// It doesn't have local state
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is
+import { useState, useEffect } from 'react';
 
 function Prediction() {
-  
-  const [searchDate, setSearchDate] = useState('')
- 
 
+  const [searchDate, setSearchDate] = useState('')
+
+  const dateFormat = (input) => {
+    input = input.split("-");
+    return input[2] + "-" + input[1] + "-" + input[0]
+  }
   const store = useReduxStore();
 
-  // const [fixtures, setFixtures] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,15 +24,13 @@ function Prediction() {
     <div className="container">
       <h2>Start your prediction</h2>
       <input type="date" value={searchDate} onChange={(event) => setSearchDate(event.target.value)} />
-
-      {/* <button onClick={() => handleClick}>Go</button> */}
-
       {store.setFixtures.map((fixture) => {
-        return <PredictionDetail key ={fixture.id}fixture={fixture} />
+        return <PredictionDetail key={fixture.id} fixture={fixture} />
+
 
       })}
 
-
+      <button>Submit</button>
     </div>
   );
 }
