@@ -17,24 +17,26 @@ function Prediction() {
   // const [fixtures, setFixtures] = useState([]);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch({ type: 'FETCH_FIXTURES', })
+  // useEffect(() => {
+  //   dispatch({ type: 'FETCH_FIXTURES', })
 
-  }, [])
+  // }, [])
 
   const fixtureDates = (event) =>{
-    console.log(event.target.value);
-    setSearchDate(event.target.value)
+   const newDate= event.target.value
+    setSearchDate(newDate)
+
+    dispatch({type:'FETCH_DATE_FIXTURE',  payload: newDate});
   }
 
   return (
     <div className="container">
       <h2>Start your prediction</h2>
       <input type="date" value={searchDate} onChange={fixtureDates} />
-
+      {/* {JSON.stringify(store.selectedDate)} */}
       {/* <button onClick={() => handleClick}>Go</button> */}
 
-      {store.setFixtures.map((fixture) => {
+      {store.selectedDate.map((fixture) => {
         return <PredictionDetail key ={fixture.id}fixture={fixture} />
 
       })}

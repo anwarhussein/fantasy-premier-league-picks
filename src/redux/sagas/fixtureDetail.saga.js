@@ -1,11 +1,11 @@
-import { takeLatest } from "@redux-saga/core/effects";
+import {put, takeLatest} from 'redux-saga/effects'
 import axios from 'axios'
 
 
 function* fetchFixtureDetails(action) {
     try {
-        const fixture = action.payload;
-        const fixtureDetails = yield axios.get(`/api/fixture/date/${fixture.date}`);
+        const date = action.payload;
+        const fixtureDetails = yield axios.get(`/api/fixture/date/${date}`);
         yield put({ type: 'SET_DATE_DETAIL', payload: fixtureDetails.data });
     } catch (error) {
         console.error('ERROR in fetchDetails', error);
@@ -14,7 +14,7 @@ function* fetchFixtureDetails(action) {
 }
 
 function* fixtureDatesSaga(){
-    yield takeLatest('FETCH_DATE_FIXTURES', fetchFixtureDetails)
+    yield takeLatest('FETCH_DATE_FIXTURE', fetchFixtureDetails)
 }
 
 export default fixtureDatesSaga;
