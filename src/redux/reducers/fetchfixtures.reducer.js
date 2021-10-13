@@ -1,10 +1,10 @@
-const setFixtures = (state = [], action) => {
-    switch (action.type) {
-        case 'SET_FIXTURES':
-            return action.payload;
+// const setFixtures = (state = [], action) => {
+//     switch (action.type) {
+//         case 'SET_FIXTURES':
+//             return action.payload;
 
-        default:
-            return state;
-    }
-};
-export default setFixtures;
+//         default:
+//             return state;
+//     }
+// };
+// export default setFixtures;

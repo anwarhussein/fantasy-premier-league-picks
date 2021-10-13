@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/fixture/:date', (req, res) => {
-  const queryText = 'SELECT * FROM fixtures WHERE "date" =$1';
+  const queryText = 'SELECT * FROM fixtures WHERE date=$1';
   pool.query(queryText, [req.params.date])
     .then((result) => { res.send(result.rows[0]); })
     .catch((err) => {
@@ -31,9 +31,7 @@ router.get('/fixture/:date', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-  const payload = req.body;
-  const queryText = `INSERT INTO fixtures ("")  `
-  
+  // POST route code here
 });
 
 module.exports = router;

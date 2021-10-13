@@ -7,25 +7,31 @@ function Prediction() {
 
   const [searchDate, setSearchDate] = useState('')
 
-  const dateFormat = (input) => {
-    input = input.split("-");
-    return input[2] + "-" + input[1] + "-" + input[0]
-  }
   const store = useReduxStore();
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch({ type: 'FETCH_FIXTURES', })
+  // useEffect(() => {
+  //   dispatch({ type: 'FETCH_FIXTURES', })
 
-  }, [])
+  // }, [])
+
+  const fixtureDates = (event) =>{
+   const newDate= event.target.value
+    setSearchDate(newDate)
+
+    dispatch({type:'FETCH_DATE_FIXTURE',  payload: newDate});
+  }
 
   return (
     <div className="container">
       <h2>Start your prediction</h2>
-      <input type="date" value={searchDate} onChange={(event) => setSearchDate(event.target.value)} />
-      {store.setFixtures.map((fixture) => {
-        return <PredictionDetail key={fixture.id} fixture={fixture} />
+      <input type="date" value={searchDate} onChange={fixtureDates} />
+      {/* {JSON.stringify(store.selectedDate)} */}
+      {/* <button onClick={() => handleClick}>Go</button> */}
+
+      {store.selectedDate.map((fixture) => {
+        return <PredictionDetail key ={fixture.id}fixture={fixture} />
 
 
       })}
