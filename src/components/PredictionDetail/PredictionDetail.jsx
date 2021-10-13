@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom';
+
 
 
 function PredictionDetail({ fixture }) {
 
-
+    const history = useHistory()
     const dispatch = useDispatch()
 
 
     useEffect(() => {
         dispatch({ type: 'FETCH_DATE_FIXTURES', payload: fixture.date })
     }, [fixture.date])
+     
+    history.push('/yours');
 
     return (
         <>

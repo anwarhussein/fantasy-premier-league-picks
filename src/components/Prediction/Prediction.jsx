@@ -30,7 +30,7 @@ function Prediction() {
 
       })}
 
-      <button>Submit</button>
+      <button>Next</button>
     </div>
   );
 }

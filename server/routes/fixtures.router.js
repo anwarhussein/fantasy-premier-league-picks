@@ -31,7 +31,9 @@ router.get('/fixture/:date', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-  // POST route code here
+  const payload = req.body;
+  const queryText = `INSERT INTO fixtures ("")  `
+  
 });
 
 module.exports = router;
