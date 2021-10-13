@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
 import PredictionDetail from '../PredictionDetail/PredictionDetail';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 
 function Prediction() {
 
@@ -27,9 +27,6 @@ function Prediction() {
     <div className="container">
       <h2>Start your prediction</h2>
       <input type="date" value={searchDate} onChange={fixtureDates} />
-      {/* {JSON.stringify(store.selectedDate)} */}
-      {/* <button onClick={() => handleClick}>Go</button> */}
-
       {store.selectedDate.map((fixture) => {
         return <PredictionDetail key ={fixture.id}fixture={fixture} />
 
