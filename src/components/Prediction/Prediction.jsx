@@ -1,6 +1,7 @@
-import React,{useState, useEffect} from 'react';
-import  { useDispatch, useSelector } from 'react-redux'; 
+import { useDispatch, useSelector } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
+import PredictionDetail from '../PredictionDetail/PredictionDetail';
+import { useState,useEffect } from 'react';
 // This is one of our simplest components
 // It doesn't have local state
 // It doesn't dispatch any redux actions or display any part of redux state
@@ -8,26 +9,32 @@ import useReduxStore from '../../hooks/useReduxStore';
 
 function Prediction() {
   
-  const store = useReduxStore();
-  
- // const [fixtures, setFixtures] = useState([]);
-  const dispatch = useDispatch();
+  const [searchDate, setSearchDate] = useState('')
  
-  useEffect(() =>{
-    dispatch({type:'FETCH_FIXTURES'})
 
-  },[])
-  
+  const store = useReduxStore();
+
+  // const [fixtures, setFixtures] = useState([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_FIXTURES', })
+
+  }, [])
+
   return (
     <div className="container">
       <h2>Start your prediction</h2>
-      {/* <input type="date" value={dateValue} onChange={(event) =>setDateValue(event.target.value)}/> */}
-      
-      {store.setFixtures.map((fixture) =>{
-        return <li key={fixture.id}>{fixture.home_team} vs {fixture.away_team} </li>
+      <input type="date" value={searchDate} onChange={(event) => setSearchDate(event.target.value)} />
+
+      {/* <button onClick={() => handleClick}>Go</button> */}
+
+      {store.setFixtures.map((fixture) => {
+        return <PredictionDetail key ={fixture.id}fixture={fixture} />
 
       })}
-     
+
+
     </div>
   );
 }
