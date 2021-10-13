@@ -95,6 +95,12 @@ function App() {
               <RegisterPage />
             }
           </Route>
+          <Route
+          
+          exact
+          path="/yours"
+          >
+          </Route>
 
           <Route
             exact
