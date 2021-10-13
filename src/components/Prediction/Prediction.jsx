@@ -6,19 +6,30 @@ import  { useDispatch, useSelector } from 'react-redux';
 // or even care what the redux state is
 
 function Prediction() {
-  const [dateValue, setDateValue] = useState(null);
+  
+  const fixtureListStore = useSelector(store => store);
+
+  const {setFixture} = fixtureListStore
+
+
+ // const [fixtures, setFixtures] = useState([]);
   const dispatch = useDispatch();
+ 
   useEffect(() =>{
-    dispatch({type:'FETCH_FIXTURES', payload:dateValue})
+    dispatch({type:'FETCH_FIXTURES'})
 
   },[])
+  
   return (
     <div className="container">
       <h2>Start your prediction</h2>
-      <input type="date" value={dateValue} onChange={(event) =>setDateValue(event.target.value)}/>
+      {/* <input type="date" value={dateValue} onChange={(event) =>setDateValue(event.target.value)}/> */}
+      
+      {setFixture.map((fixture) =>{
+        return <li key={fixture.id}>{fixture.home_team} vs {fixture.away_team}</li>
 
-       
-
+      })}
+     
     </div>
   );
 }
