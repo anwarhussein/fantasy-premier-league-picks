@@ -1,20 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
 import PredictionDetail from '../PredictionDetail/PredictionDetail';
-import { useState,useEffect } from 'react';
-// This is one of our simplest components
-// It doesn't have local state
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is
+import { useState, useEffect } from 'react';
 
 function Prediction() {
-  
+
   const [searchDate, setSearchDate] = useState('')
- 
 
   const store = useReduxStore();
 
-  // const [fixtures, setFixtures] = useState([]);
   const dispatch = useDispatch();
 
   // useEffect(() => {
@@ -39,9 +33,10 @@ function Prediction() {
       {store.selectedDate.map((fixture) => {
         return <PredictionDetail key ={fixture.id}fixture={fixture} />
 
+
       })}
 
-
+      <button>Next</button>
     </div>
   );
 }
