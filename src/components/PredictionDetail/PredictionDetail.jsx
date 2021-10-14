@@ -1,21 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 
-function PredictionDetail({fixture}) {
-        
-    
+function PredictionDetail({ fixture, handlePostSelect}) {
+  
+
+    //   useEffect(() => {
+    //     dispatch({ type: 'FETCH_DATE_FIXTURE', })
+
+    //   }, [])
+
 
     return (
-            <div key={fixture.id}>{fixture.home_team}  VS  {fixture.away_team}
-            <select>
-                <option>pick your team</option>
-                <option>{fixture.home_team}</option>
-                <option>{fixture.away_team}</option>
-
-            </select>
+        
+        <div key={fixture.id}>{fixture.home_team}  VS  {fixture.away_team}
+        
             
-            </div> 
+     <select onChange={handlePostSelect}>
+          <option>select team</option>
+          <option>{fixture.home_team}</option>
+          <option>{fixture.away_team}</option>  
+
+    </select>
+
+        </div>
+
+         
+          
     )
 }
 
