@@ -5,26 +5,34 @@ import { useState, useEffect } from 'react';
 
 function Prediction() {
 
-  const [searchDate, setSearchDate] = useState('')
-  const [teamSelected, setTeamSelected] = useState('')
-
-  const handlePostSelect = (event) => {
-    const team = event.target.value
-    dispatch({ type: 'ADD_WINNING_TEAM', payload: team })
-    setTeamSelected(team)
-  }
-
   const dispatch = useDispatch();
 
   const store = useReduxStore();
+
+  const [searchDate, setSearchDate] = useState('')
+  const [prediction, setPrediction] = useState([])
+
+  const handleSelect = (event, fixtureId ) => {
+    const teamPick= event.target.value
+    const pick =[...prediction,{teamPick, fixtureId}]
+   
+    setPrediction(pick)
+    console.log(pick);
+  }
+
+  const handlePostTeam = () =>{
+    dispatch({ type: 'ADD_WINNING_TEAM', payload: prediction })
+    console.log(prediction);
+
+  }
 
   const fixtureDates = (event) => {
     const newDate = event.target.value
     setSearchDate(newDate)
 
     dispatch({ type: 'FETCH_DATE_FIXTURE', payload: newDate });
-  }
-
+  } 
+  
   return (
 
     <div className="container">
@@ -33,13 +41,17 @@ function Prediction() {
       <input type="date" value={searchDate} onChange={fixtureDates} />
 
       {store.selectedDate.map((fixture) => {
-        return <PredictionDetail handlePostSelect={handlePostSelect} key={fixture.id} fixture={fixture} />
+        return <PredictionDetail handleSelect={handleSelect}
+        
+        key={fixture.id} fixture={fixture} />
     
 
 
       })}
+  
 
-      <button>Next</button>
+      <button onClick={handlePostTeam}>Next</button>
+    
     </div>
     
 

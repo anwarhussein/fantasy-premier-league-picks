@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 
 
-function PredictionDetail({ fixture, handlePostSelect}) {
+function PredictionDetail({ fixture, handleSelect}) {
   
 
     //   useEffect(() => {
@@ -16,14 +16,16 @@ function PredictionDetail({ fixture, handlePostSelect}) {
         <div key={fixture.id}>{fixture.home_team}  VS  {fixture.away_team}
         
             
-     <select onChange={handlePostSelect}>
+     <select onChange={(event) =>handleSelect(event,fixture.id)}>
           <option>select team</option>
           <option>{fixture.home_team}</option>
           <option>{fixture.away_team}</option>  
 
     </select>
 
+    
         </div>
+          
 
          
           

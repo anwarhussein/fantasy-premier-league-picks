@@ -32,15 +32,23 @@ router.get('/:date', (req, res) => {
  */
 router.post('/', (req, res) => {
   // POST route code here
-  const payload = req.body;
-  const queryText = `INSERT INTO fixtures ("winning_team") VALUES ($1);`;
-  pool.query(queryText, [payload.winning_team])
+  const payload = req.body
+  payload.map((pick) =>{
+    console.log(pick)
+
+  
+  const queryText = `INSERT INTO predictions ("user_id","fixture_id","winning_team") VALUES ($1, $2,$3);`;
+  pool.query(queryText, [req.user.id, pick.fixtureId,pick.teamPick])
+
   .then((response) =>{
-    res.sendStatus(201);
+    res.sendStatus(201); 
+  
   }).catch((error) =>{
     console.log("Error posting to Database", error);
     res.sendStatus(500);
   })
+})
+  
 });
 
 module.exports = router;
