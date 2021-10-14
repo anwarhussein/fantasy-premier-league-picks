@@ -1,8 +1,13 @@
-
-
+import { useDispatch } from 'react-redux';
 function Summary() {
-   
-   
+
+const dispatch = useDispatch();
+
+
+useEffect(() =>{
+    dispatch({type:'FETCH_PREDICTION'})
+},[])
+
     return (
         <div>
             <h2>Your Picks for the Week</h2>

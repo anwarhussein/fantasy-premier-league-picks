@@ -2,9 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
 import PredictionDetail from '../PredictionDetail/PredictionDetail';
 import { useState, useEffect } from 'react';
+import {useHistory} from 'react-router-dom'
 
 function Prediction() {
-
+  
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const store = useReduxStore();
@@ -23,6 +25,7 @@ function Prediction() {
   const handlePostTeam = () =>{
     dispatch({ type: 'ADD_WINNING_TEAM', payload: prediction })
     console.log(prediction);
+    history.push('/yours')
 
   }
 
@@ -32,7 +35,12 @@ function Prediction() {
 
     dispatch({ type: 'FETCH_DATE_FIXTURE', payload: newDate });
   } 
-  
+
+  useEffect(() =>{
+    dispatch({type: 'FETCH_FIXTURE'})
+
+  },[])
+
   return (
 
     <div className="container">

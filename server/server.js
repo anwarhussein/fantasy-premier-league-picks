@@ -10,6 +10,7 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const fixtureRouter = require('./routes/fixtures.router')
+const predictionRouter
 
 // Body parser middleware
 app.use(bodyParser.json());

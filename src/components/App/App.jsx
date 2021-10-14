@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
+import Summary from '../Summary/Summary';
 
 function App() {
   const dispatch = useDispatch();
@@ -100,6 +101,7 @@ function App() {
           exact
           path="/yours"
           >
+            <Summary/>
           </Route>
 
           <Route

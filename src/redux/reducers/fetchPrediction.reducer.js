@@ -1,10 +1,10 @@
-const setFixtures = (state = [], action) => {
+const setPrediction = (state = {}, action) => {
     switch (action.type) {
-        case 'SET_FIXTURE':
+        case 'SET_PREDICTION':
             return action.payload;
 
         default:
             return state;
     }
 };
-export default setFixtures;
+export default setPrediction;
