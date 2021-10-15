@@ -1,4 +1,4 @@
-const setPrediction = (state = {}, action) => {
+const setPrediction = (state = [], action) => {
     switch (action.type) {
         case 'SET_PREDICTION':
             return action.payload;

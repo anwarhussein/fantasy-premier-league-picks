@@ -3,8 +3,8 @@ import axios from 'axios';
 
 function* addAwinningTeam(action) {
     try {
-        yield axios.post('/api/fixture', action.payload)
-        yield put({ type: 'FETCH_FIXTURE' })
+        yield axios.post('/api/prediction', action.payload)
+        yield put({ type: 'FETCH_PREDICTION' })
 
     } catch (error) {
         console.log('Error adding a winning team', error);

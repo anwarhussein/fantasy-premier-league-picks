@@ -6,7 +6,6 @@ const router = express.Router();
  * GET route template
 //  */
 router.get('/', (req, res) => {
-  console.log(req.body)
   const queryText = 'SELECT * FROM fixtures;';
   pool.query(queryText)
   .then((result) =>{
@@ -30,25 +29,6 @@ router.get('/:date', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
-  // POST route code here
-  const payload = req.body
-  payload.map((pick) =>{
-    console.log(pick)
 
-  
-  const queryText = `INSERT INTO predictions ("user_id","fixture_id","winning_team") VALUES ($1, $2,$3);`;
-  pool.query(queryText, [req.user.id, pick.fixtureId,pick.teamPick])
-
-  .then((response) =>{
-    res.sendStatus(201); 
-  
-  }).catch((error) =>{
-    console.log("Error posting to Database", error);
-    res.sendStatus(500);
-  })
-})
-  
-});
 
 module.exports = router;

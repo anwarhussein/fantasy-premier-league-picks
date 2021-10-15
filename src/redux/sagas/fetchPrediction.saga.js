@@ -1,9 +1,12 @@
 import { put, takeLatest } from 'redux-saga/effects'
 import axios from 'axios';
 
-function* fetchPrediction() {
+function* fetchPrediction(action) {
     try {
-        const response= yield axios.get('/api/fixture')
+        const dateToSearch = action.payload
+        const response = yield axios.get(`/api/prediction/${dateToSearch}`
+    
+        )
         yield put({ type: 'SET_PREDICTION', payload: response.data });
 
     } catch (error) {

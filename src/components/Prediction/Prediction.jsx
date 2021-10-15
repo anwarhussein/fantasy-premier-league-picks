@@ -4,6 +4,7 @@ import PredictionDetail from '../PredictionDetail/PredictionDetail';
 import { useState, useEffect } from 'react';
 import {useHistory} from 'react-router-dom'
 
+
 function Prediction() {
   
   const history = useHistory();
@@ -36,10 +37,10 @@ function Prediction() {
     dispatch({ type: 'FETCH_DATE_FIXTURE', payload: newDate });
   } 
 
-  useEffect(() =>{
-    dispatch({type: 'FETCH_FIXTURE'})
+  // useEffect(() =>{
+  //   dispatch({type: 'FETCH_FIXTURE'})
 
-  },[])
+  // },[])
 
   return (
 
@@ -56,7 +57,7 @@ function Prediction() {
 
 
       })}
-  
+    
 
       <button onClick={handlePostTeam}>Next</button>
     
