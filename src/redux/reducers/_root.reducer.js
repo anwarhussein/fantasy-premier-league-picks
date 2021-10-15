@@ -4,6 +4,7 @@ import user from './user.reducer';
 import setFixtures from './fetchfixtures.reducer';
 import selectedDate from './selectedDate.reducer'
 import setPrediction from './fetchPrediction.reducer';
+import setMatch from './editMatch.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   setFixtures,
   selectedDate,
   setPrediction,
+  setMatch,
 
 });
 

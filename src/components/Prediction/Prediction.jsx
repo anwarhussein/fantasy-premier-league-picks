@@ -16,6 +16,7 @@ function Prediction() {
   const [prediction, setPrediction] = useState([])
 
   const handleSelect = (event, fixtureId ) => {
+ 
     const teamPick= event.target.value
     const pick =[...prediction,{teamPick, fixtureId}]
    
@@ -37,10 +38,6 @@ function Prediction() {
     dispatch({ type: 'FETCH_DATE_FIXTURE', payload: newDate });
   } 
 
-  // useEffect(() =>{
-  //   dispatch({type: 'FETCH_FIXTURE'})
-
-  // },[])
 
   return (
 

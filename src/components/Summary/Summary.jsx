@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
-import { useState } from 'react'
+import {useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 
@@ -11,17 +11,28 @@ function Summary() {
 
     const store = useReduxStore();
     const [selectDate, setSelectDate] = useState('');
-    const [team, setSelectTeam] = useState({})
+    const [team, setSelectTeam] = useState('')
 
+    
     const predictionDate = (event) => {
-        const myDate = event.target.value
-        setSelectDate(myDate)
-        dispatch({ type: 'FETCH_PREDICTION', payload: myDate })
-    }
+        event.preventDefault();
+        const myDate =event.target.value
+        // if(myDate ===undefined){
+        //     return;
+        // }
+       setSelectDate(myDate)
+  
 
-    const handleEditTeam = (teamName) => {
-        dispatch({ type: 'EDIT_YOUR_TEAM', payload: teamName })
-        setSelectTeam(teamName);
+    }   
+    const handleSubmitDate = (event) =>{
+        dispatch({ type: 'FETCH_PREDICTION', payload: selectDate })
+
+    }
+        
+    const handleEditTeam = (match) => {
+       
+        dispatch({ type: 'EDIT_YOUR_TEAM', payload:match  })
+     
         history.push('/info')
     }
     return (
@@ -48,15 +59,15 @@ function Summary() {
                             <td>{game.home_team} vs {game.away_team}</td>
                             <td>{game.winning_team}</td>
 
-                            <td><button onClick={() => handleEditTeam(team)}>Edit</button></td>
+                            <td><button onClick={() => handleEditTeam(game)}>Edit</button></td>
                         </tr>
                     </tbody>
-
                 </table>
 
             })}
 
-            <button>Submit</button>
+            <button onClick={handleSubmitDate}>Submit</button>
+            
         </div>
     )
 }

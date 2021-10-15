@@ -32,13 +32,15 @@ function Nav() {
               Start Here
             </Link>
 
-            <LogOutButton className="navLink" />
+        
           </>
         )}
 
         <Link className="navLink" to="/about">
-          About
+          Admin
         </Link>
+
+        <LogOutButton className="navLink" />
       </div>
     </div>
   );

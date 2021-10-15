@@ -1,4 +1,5 @@
 import React from 'react';
+import LandingPage from '../LandingPage/LandingPage';
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -9,7 +10,8 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+        <h2>Admin Log in</h2>
+        <LandingPage/>
       </div>
     </div>
   );
