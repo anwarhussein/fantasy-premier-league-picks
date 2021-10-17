@@ -44,7 +44,7 @@ function Prediction() {
     <div className="container">
     
       <h2>Start your prediction</h2>
-      <input type="date" value={searchDate} onChange={fixtureDates} />
+      Select Date<input type="date" value={searchDate} onChange={fixtureDates} />
 
       {store.selectedDate.map((fixture) => {
         return <PredictionDetail handleSelect={handleSelect}
@@ -56,7 +56,7 @@ function Prediction() {
       })}
     
 
-      <button onClick={handlePostTeam}>Next</button>
+      <button onClick={handlePostTeam}>Save Your Prediction</button>
     
     </div>
     

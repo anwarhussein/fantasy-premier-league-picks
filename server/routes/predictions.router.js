@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 router.get('/:date', (req, res) => {
-    console.log(req.params.date)
+    // console.log(req.params.date)
     const queryText = `
 
     SELECT users.id, fixtures.date, fixtures.home_team,fixtures.away_team,predictions.winning_team FROM fixtures 
@@ -22,7 +22,7 @@ router.get('/:date', (req, res) => {
     // POST route code here
     const payload = req.body
     payload.map((pick) =>{
-      console.log(pick)
+      // console.log(pick)
   
     const queryText = `INSERT INTO predictions ("user_id","fixture_id","winning_team") VALUES ($1, $2,$3);`;
     pool.query(queryText, [req.user.id, pick.fixtureId,pick.teamPick])
@@ -38,10 +38,12 @@ router.get('/:date', (req, res) => {
     
   });
 
-  router.put('/:team', (req, res) =>{
-      console.log(req.params)
-      const queryText = `UPDATE predictions SET "winning_team" = $1;`
-      pool.query(queryText, [updatedFixture.team])
+  router.put('/:matchID', (req, res) =>{
+      
+      console.log("This the id", req.params.matchID)
+      console.log("this is the team i wanna edit", req.body.team.team)
+      const queryText = `UPDATE predictions SET winning_team = $1 where fixture_id = $2;`
+      pool.query(queryText, [ req.body.team.team, req.params.matchID])
       .then(() =>{
         res.sendStatus(200);
       }).catch((err) =>{

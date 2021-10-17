@@ -7,7 +7,7 @@ import fixtureDatesSaga from './fixtureDetail.saga';
 import addWinningTeamSaga from './addWinningTeam.saga';
 import fetchFixturesSaga from './fetchFixturesSaga';
 import fetchPredictionSaga from './fetchPrediction.saga';
-import editTeamSaga from './EditTeam.saga';
+import editTeamSaga from './EditMatch.saga'
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.

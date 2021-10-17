@@ -22,6 +22,9 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
 import Summary from '../Summary/Summary';
+import EditMatchPrediction from '../EditMatchPreditiction/EditMatchPrediction';
+import ResultsPost from '../ResultsPost/ResultsPost';
+import Success from '../Success/Success';
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +50,22 @@ function App() {
             path="/about"
           >
             <AboutPage />
+          </Route>
+
+          <Route
+          
+            exact
+            path="/result"
+          >
+            <ResultsPost />
+          </Route>
+
+          <Route
+           
+            exact
+            path="/success"
+          >
+            <Success/>
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
@@ -102,6 +121,14 @@ function App() {
           path="/yours"
           >
             <Summary/>
+          </Route>
+
+          <Route
+          
+          exact
+          path="/edit"
+          >
+            <EditMatchPrediction/>
           </Route>
 
           <Route

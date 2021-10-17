@@ -11,7 +11,8 @@ function Summary() {
 
     const store = useReduxStore();
     const [selectDate, setSelectDate] = useState('');
-    const [team, setSelectTeam] = useState('')
+    const [showHeader, setShowHeader] = useState(false);
+    const [showButton, setShowButton] = useState(true);
 
     
     const predictionDate = (event) => {
@@ -25,33 +26,35 @@ function Summary() {
 
     }   
     const handleSubmitDate = (event) =>{
+       
         dispatch({ type: 'FETCH_PREDICTION', payload: selectDate })
-
+        setShowHeader(!showHeader);
+        setShowButton(!showButton);
     }
         
     const handleEditTeam = (match) => {
        
         dispatch({ type: 'EDIT_YOUR_TEAM', payload:match  })
      
-        history.push('/info')
+        history.push('/edit')
     }
     return (
         <div>
-            <h2>Your Picks for the Week</h2>
-            <input type="date" value={selectDate} onChange={predictionDate} />
-            {/* {JSON.stringify(store.setPrediction)} */}
-            <table>
-                <thead>
-                    <tr>
+            <h2>View your prediction for the Week</h2>
+            Select Date:<input type="date" value={selectDate} onChange={predictionDate} />
+            {showHeader && <table>
+            <thead>
+              <tr>
                         <th>Date</th>
+
                         <th>Matches</th>
 
-                        <th>Action</th>
+                        <th>Pick</th>
                     </tr>
                 </thead>
-            </table>
+            </table>}
             {store.setPrediction.map((game) => {
-                return <table key={game}>
+                return <table key={game.id}>
 
                     <tbody>
                         <tr>
@@ -66,7 +69,7 @@ function Summary() {
 
             })}
 
-            <button onClick={handleSubmitDate}>Submit</button>
+            {showButton &&<button onClick={handleSubmitDate}>Submit</button>}
             
         </div>
     )

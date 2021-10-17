@@ -39,6 +39,10 @@ function Nav() {
         <Link className="navLink" to="/about">
           Admin
         </Link>
+        
+        <Link className="navLink" to="/result">
+          Results
+        </Link>
 
         <LogOutButton className="navLink" />
       </div>
