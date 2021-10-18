@@ -31,8 +31,6 @@ function Nav() {
             <Link className="navLink" to="/info">
               Start Here
             </Link>
-
-        
           </>
         )}
 

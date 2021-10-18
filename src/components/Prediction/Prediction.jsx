@@ -44,6 +44,7 @@ function Prediction() {
     <div className="container">
     
       <h2>Start your prediction</h2>
+      <h4>Please remember the date you select, you'll need it later if you choose to make changes.</h4>
       Select Date<input type="date" value={searchDate} onChange={fixtureDates} />
 
       {store.selectedDate.map((fixture) => {

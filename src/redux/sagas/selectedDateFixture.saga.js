@@ -2,7 +2,7 @@ import {put, takeLatest} from 'redux-saga/effects'
 import axios from 'axios'
 
 
-function* fetchFixtureDetails(action) {
+function* selectedDateFixture(action) {
     try {
         const date = action.payload;
         const fixtureDetails = yield axios.get(`/api/fixture/${date}`);
@@ -13,8 +13,9 @@ function* fetchFixtureDetails(action) {
     }
 }
 
-function* fixtureDatesSaga(){
-    yield takeLatest('FETCH_DATE_FIXTURE', fetchFixtureDetails)
+function* selectedDateFixtureSaga(){
+    yield takeLatest('FETCH_DATE_FIXTURE', selectedDateFixture)
 }
 
-export default fixtureDatesSaga;
+export default selectedDateFixtureSaga;
+;

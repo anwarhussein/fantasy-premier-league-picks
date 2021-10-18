@@ -1,6 +1,6 @@
 const setFixtures = (state = [], action) => {
     switch (action.type) {
-        case 'SET_FIXTURE':
+        case 'SET_ALL_FIXTURES':
             return action.payload;
 
         default:

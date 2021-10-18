@@ -40,7 +40,8 @@ function Summary() {
     }
     return (
         <div>
-            <h2>View your prediction for the Week</h2>
+            <p>Your picks has been Saved!</p>
+            <h4>Click on your selected date to view your picks </h4>
             Select Date:<input type="date" value={selectDate} onChange={predictionDate} />
             {showHeader && <table>
             <thead>
