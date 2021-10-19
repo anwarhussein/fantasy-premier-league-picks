@@ -9,7 +9,7 @@ import fetchFixturesSaga from './fetchFixturesSaga';
 import fetchPredictionSaga from './fetchPrediction.saga';
 import editTeamSaga from './EditMatch.saga'
 import addResultsSaga from './addResults.saga';
-
+import fetchFixtureWinnerSaga from './fetchFixturesWinners.saga';
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 
@@ -28,7 +28,8 @@ export default function* rootSaga() {
     addWinningTeamSaga(),
     fetchPredictionSaga(),
     editTeamSaga(),
-    addResultsSaga()
+    addResultsSaga(),
+    fetchFixtureWinnerSaga()
 
 
     

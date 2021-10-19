@@ -41,11 +41,11 @@ function Nav() {
         <Link className="navLink" to="/winners">
           Winners
         </Link>
-        
-        <Link className="navLink" to="/about">
+        {user.id && user.username==='Admin' &&(
+        <Link className="navLink" to="/admin">
           Admin
         </Link>
-
+  )}
         <LogOutButton className="navLink" />
       </div>
     </div>

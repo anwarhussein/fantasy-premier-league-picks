@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import useReduxStore from '../../hooks/useReduxStore';
 import ResultsPostListItem from '../ResultsPostListItem/ResultsPostListItem';
 
+
 function ResultsPostList() {
 
     const dispatch = useDispatch();
@@ -30,11 +31,11 @@ function ResultsPostList() {
          return <ResultsPostListItem key={fixture.id}
          fixture={fixture} />
                     
-             
             
             })}
 
         <button onClick={handleFetchfixtures}>Submit</button>
+    
 
     </div >
     );
