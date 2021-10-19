@@ -19,12 +19,12 @@ import Prediction from '../Prediction/Prediction'
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-
 import './App.css';
 import Summary from '../Summary/Summary';
 import EditMatchPrediction from '../EditMatchPreditiction/EditMatchPrediction';
-import ResultsPost from '../ResultsPost/ResultsPost';
+import ResultsPostList from '../ResultsPostList/ResultsPostList';
 import Success from '../Success/Success';
+import Winners from '../Winners/Winners';
 
 function App() {
   const dispatch = useDispatch();
@@ -57,7 +57,7 @@ function App() {
             exact
             path="/result"
           >
-            <ResultsPost />
+            <ResultsPostList />
           </Route>
 
           <Route
@@ -67,6 +67,14 @@ function App() {
           >
             <Success/>
           </Route>
+
+          <Route
+           
+           exact
+           path="/winners"
+         >
+           <Winners/>
+         </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.

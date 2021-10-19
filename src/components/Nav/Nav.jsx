@@ -34,12 +34,16 @@ function Nav() {
           </>
         )}
 
-        <Link className="navLink" to="/about">
-          Admin
-        </Link>
-        
         <Link className="navLink" to="/result">
           Results
+        </Link>
+
+        <Link className="navLink" to="/winners">
+          Winners
+        </Link>
+        
+        <Link className="navLink" to="/about">
+          Admin
         </Link>
 
         <LogOutButton className="navLink" />

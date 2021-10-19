@@ -26,9 +26,20 @@ router.get('/:date', (req, res) => {
     });
 });
 
-/**
- * POST route template
- */
+
+router.put('/:id', (req, res) =>{
+      
+  console.log("This the id", req.params.id)
+  console.log("this is the team i wanna edit", req.body.team.selectTeam)
+  const queryText = `UPDATE fixtures SET winning_team = $1 where fixtures.id = $2;`
+  pool.query(queryText, [ req.body.team.selectTeam, req.params.id])
+  .then(() =>{
+    res.sendStatus(200);
+  }).catch((err) =>{
+      res.sendStatus('Error updating team selection', err)
+  })
+})
+  
 
 
 module.exports = router;
