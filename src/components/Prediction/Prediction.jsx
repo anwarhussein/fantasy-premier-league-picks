@@ -2,11 +2,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
 import PredictionDetail from '../PredictionDetail/PredictionDetail';
 import { useState, useEffect } from 'react';
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+import Button from '@mui/material/Button';
+import { Paper, Container, Grid } from '@mui/material';
+
 
 
 function Prediction() {
-  
+
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -15,18 +18,19 @@ function Prediction() {
   const [searchDate, setSearchDate] = useState('')
   const [prediction, setPrediction] = useState([])
 
-  const handleSelect = (event, fixtureId ) => {
- 
-    const teamPick= event.target.value
-    const pick =[...prediction,{teamPick, fixtureId}]
-   
+  const handleSelect = (event, fixtureId) => {
+
+
+    const teamPick = event.target.value
+    const pick = [...prediction, { teamPick, fixtureId }]
+
     setPrediction(pick)
     console.log(pick);
   }
 
-  const handlePostTeam = () =>{
+  const handlePostTeam = (event) => {
+
     dispatch({ type: 'ADD_WINNING_TEAM', payload: prediction })
-    console.log(prediction);
     history.push('/yours')
 
   }
@@ -36,33 +40,83 @@ function Prediction() {
     setSearchDate(newDate)
 
     dispatch({ type: 'FETCH_DATE_FIXTURE', payload: newDate });
-  } 
-
+  }
 
   return (
 
     <div className="container">
-    
-      <h2>Start your prediction</h2>
-      <h4>Please remember the date you select, you'll need it later if you choose to make changes.</h4>
-      Select Date<input type="date" value={searchDate} onChange={fixtureDates} />
 
-      {store.selectedDate.map((fixture) => {
-        return <PredictionDetail handleSelect={handleSelect}
+      <Paper elevation={12}>
+      <Grid container style={{margin: '10px', padding: '10px'}} className="parent-grid">
+
+        <h2>Start your prediction</h2>
+        <h4>Please remember the date you select, you'll need it later if you choose to make changes.</h4>
+
+
         
-        key={fixture.id} fixture={fixture} />
-    
+
+          <Grid item style={{margin: '10px', padding: '10px'}}>
+            <div className="date">Select Date<input type="date" value={searchDate} onChange={fixtureDates} />
+            </div>
+          </Grid>
 
 
-      })}
-    
+          <Grid item style={{margin: '10px', padding: '10px'}}>
+            <Button className="save-button" onClick={handlePostTeam} color='secondary' variant='contained'>Save</Button>
+          </Grid>
+        
 
-      <button onClick={handlePostTeam}>Save Your Prediction</button>
-    
-    </div>
-    
+            <br /><br />
+
+
+        <Container style={{margin: '10px', padding: '10px'}}>
+            {store.selectedDate.map((fixture) => {
+              return <PredictionDetail handleSelect={handleSelect}
+
+                key={fixture.id} fixture={fixture} />
+
+            })}
+        </Container>
+
+        </Grid>
+
+      </Paper>
+    </div >
+
 
   );
 }
 
 export default Prediction;
+                    
+
+           
+
+           
+
+           
+
+           
+
+           
+
+           
+
+           
+
+           
+
+           
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          

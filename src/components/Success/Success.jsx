@@ -1,5 +1,6 @@
 import React from 'react'
 import {useHistory} from 'react-router-dom'
+import { Paper, Button, Container, Grid } from '@mui/material'
 
 
 
@@ -17,8 +18,8 @@ function Success() {
     return (
         <div>
             <h4>Your Changes has been Saved!</h4>
-            <button onClick={handleBack}>Back to Edit</button>
-            <button onClick={handleStartPrediction}>Start new Prediction</button>
+            <Button variant="contained" onClick={handleBack}>Back to Edit</Button>
+            <Button variant="contained" color="secondary" onClick={handleStartPrediction}>Start new Prediction</Button>
         </div>
     )
 }

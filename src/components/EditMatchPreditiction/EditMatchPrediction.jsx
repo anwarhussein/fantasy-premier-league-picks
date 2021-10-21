@@ -1,8 +1,9 @@
 import useReduxStore from '../../hooks/useReduxStore';
+import './EditMatchPrediction.css'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import {useHistory} from 'react-router-dom'
-
+import { Paper, Button, Container, Grid } from '@mui/material'
 
 function EditMatchPrediction() {
 
@@ -24,7 +25,8 @@ function EditMatchPrediction() {
     }
     return (
         <div>
-            <table>
+           <Paper>
+            <table class="table">
                 <thead>
 
                     <tr>
@@ -40,15 +42,15 @@ function EditMatchPrediction() {
             {store.setMatch.date}
 
             {store.setMatch.home_team} vs {store.setMatch.away_team}
-            <select onChange={handleSelect}>
+            <select className="select" onChange={handleSelect}>
                 <option>select team</option>
                 <option>{store.setMatch.home_team}</option>
                 <option>{store.setMatch.away_team}</option>
 
             </select>
-            <button onClick={handleSubmit}>Submit</button>
+            <Button variant="contained" onClick={handleSubmit}>Submit</Button>
 
-
+            </Paper>
         </div>
     )
 }

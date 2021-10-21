@@ -1,7 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import {useState} from 'react'
-import Winners from '../Winners/Winners';
+import Button from '@mui/material/Button';
+import './Resuts.css'
 
 const ResultsPostListItem = ({fixture}) => {
 
@@ -22,14 +23,14 @@ const ResultsPostListItem = ({fixture}) => {
 
     return (
         <div key={fixture.id}>{fixture.date}{fixture.home_team} Vs {fixture.away_team}
-                    <select onChange={handleSelectTeam}>
+                    <select className="select" onChange={handleSelectTeam}>
                         <option>select team</option>
                         <option>{fixture.home_team}</option>
                         <option>{fixture.away_team}</option>
                     </select>
                
 
-                    <button onClick={()=>handlePostResults(fixture.id)}>Add Results</button>
+                    <Button color="secondary" variant="contained" onClick={()=>handlePostResults(fixture.id)}>Add Results</Button>
 
 
      

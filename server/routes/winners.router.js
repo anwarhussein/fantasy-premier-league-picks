@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     .then((result) =>{
       res.send(result.rows);
     }).catch((err) =>{
-      console.log('Error in select fixtures query', err);
+      console.log('Error in getting winners', err);
       res.sendStatus(500);
     })
   });

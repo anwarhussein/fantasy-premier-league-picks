@@ -2,6 +2,8 @@ import { useDispatch } from 'react-redux';
 import React, { useState } from 'react'
 import useReduxStore from '../../hooks/useReduxStore';
 import ResultsPostListItem from '../ResultsPostListItem/ResultsPostListItem';
+import Button from '@mui/material/Button';
+
 
 
 function ResultsPostList() {
@@ -34,7 +36,7 @@ function ResultsPostList() {
             
             })}
 
-        <button onClick={handleFetchfixtures}>Submit</button>
+        <Button variant="contained" onClick={handleFetchfixtures}>Submit</Button>
     
 
     </div >
