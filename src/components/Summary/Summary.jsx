@@ -45,53 +45,45 @@ function Summary() {
     }
     return (
         <div>
-            <Paper elevation={12}>
+           
+
     
             <p>Your picks has been Saved!</p>
             <h4>Click on your selected date to view your picks </h4>
-          
+            <Paper elevation={12} sx={{m:2}}>
             Select Date:<input type="date" value={selectDate} onChange={predictionDate} />
-          
            
-            {showHeader && <table className="table">
+            {showHeader && <tr className="table">
 
-           
-            <thead>
-              <tr>
+             
                         <th>Date</th>
-
                         <th>Matches</th>
-
                         <th>Pick</th>
+                        <th>Action</th>
                     </tr>
-                </thead>
               
-            </table>}
-            
-
+        }
           
             {store.setPrediction.map((game) => {
-                return <table key={game.id}>
+                return <tr key={game.id}
 
-                    <tbody>
-                        <tr className="active-row">
+                   
+                         className="active-row">
                             <td>{game.date}</td>
                             <td>{game.home_team} vs {game.away_team}</td>
                             <td>{game.winning_team}</td>
 
                             <td><Button variant="contained" color="secondary" onClick={() => handleEditTeam(game)}>Edit</Button></td>
-                        </tr>
-                    </tbody>
+                        
+                   
 
-                </table>
+                </tr>
               
-                
             })}
             
 
-            {showButton &&<Button color="secondary" variant="contained" onClick={handleSubmitDate}>Submit</Button>}
+            {showButton &&<Button color="secondary" variant="contained" onClick={handleSubmitDate}>View</Button>}
 
-          
             <Button onClick={handleBack}color="primary" variant="contained">Back</Button>
            
             </Paper>

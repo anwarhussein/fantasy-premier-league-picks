@@ -28,7 +28,7 @@ function Prediction() {
     console.log(pick);
   }
 
-  const handlePostTeam = (event) => {
+  const handlePostTeam = () => {
 
     dispatch({ type: 'ADD_WINNING_TEAM', payload: prediction })
     history.push('/yours')

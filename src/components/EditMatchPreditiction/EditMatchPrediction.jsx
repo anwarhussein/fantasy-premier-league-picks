@@ -25,30 +25,36 @@ function EditMatchPrediction() {
     }
     return (
         <div>
-           <Paper>
-            <table class="table">
-                <thead>
-
-                    <tr>
+           <Paper elevation={12}>
+            < tr className="table">
+                
                         <th>Date</th>
 
-                        <th>Matches</th>
+                        <th>Match</th>
 
                         <th>Pick</th>
 
-                    </tr>
-                </thead>
-            </table>
+                        </tr>  
+            <tr>
+            <td>
             {store.setMatch.date}
-
+            </td>
+            <td>
             {store.setMatch.home_team} vs {store.setMatch.away_team}
+            </td>
+            
+           
             <select className="select" onChange={handleSelect}>
                 <option>select team</option>
                 <option>{store.setMatch.home_team}</option>
                 <option>{store.setMatch.away_team}</option>
 
             </select>
+           
+           
+           
             <Button variant="contained" onClick={handleSubmit}>Submit</Button>
+            </tr>
 
             </Paper>
         </div>
