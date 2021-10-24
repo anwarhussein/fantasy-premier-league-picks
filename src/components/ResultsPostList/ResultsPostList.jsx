@@ -3,6 +3,13 @@ import React, { useState } from 'react'
 import useReduxStore from '../../hooks/useReduxStore';
 import ResultsPostListItem from '../ResultsPostListItem/ResultsPostListItem';
 import Button from '@mui/material/Button';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import { Paper, Container, Grid } from '@mui/material';
+
 
 
 
@@ -12,10 +19,6 @@ function ResultsPostList() {
     const [postDate, setPostDate] = useState('');
     const [showButton, setShowButton] = useState(false)
     const [selectTeam, setSelectTeam] = useState('')
-   
-    // const [selectedId, setSelectedId] = useState(0)
-    
-
 
 
     const store = useReduxStore();
@@ -29,7 +32,7 @@ function ResultsPostList() {
 
     const handleSelectTeam = (event, fixtureId) => {
         const teamPick = event.target.value
-        setSelectTeam([...selectTeam, {teamPick,fixtureId}])
+        setSelectTeam([...selectTeam, { teamPick, fixtureId }])
         //console.log(selectedId);
     }
 
@@ -38,45 +41,37 @@ function ResultsPostList() {
     // }
 
     const handleFetchfixtures = () => {
-        
+
         dispatch({ type: 'FETCH_FIXTURES', payload: postDate })
         setShowButton(!showButton);
-      
+
     }
 
-    
+
     return (
         <div>
             <div id="center-box">
+                <label className="date" htmlFor="Date">Select Date:</label>
+                <input type="date" value={postDate} onChange={handleSelect} />
+                {showButton || <Button variant="contained" onClick={handleFetchfixtures}>View</Button>}
+                <Paper elevation={12}>
+                {showButton &&<Table>
+                    <TableHead  className="heading">
+                        <TableRow>
+                            <TableCell><h2>Date</h2> </TableCell>
+                            <TableCell><h2>Match</h2></TableCell>
+                            <TableCell><h2>Pick</h2></TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {store.setFixtures.map((fixture) => {
 
-            Date: <input type="date" value={postDate} onChange={handleSelect} />
-            <tr>
-                <th>Date</th>
-                <th>Match</th>
-                <th>Pick</th>
-            </tr>
-            {store.setFixtures.map((fixture) => {
-                return <div><ResultsPostListItem key={fixture.id} allFixtures={store.setFixtures} fixture={fixture} className="table-center" />
-
-                    {/* <tr style={{textAlign: "center"}}>
-
-                        <td> {fixture.date}</td>
-                        <td>{fixture.home_team} Vs {fixture.away_team}</td>
-                        <select className="select" onChange={handleSelectTeam}>
-                            <option>select team</option>
-                            <option>{fixture.home_team}</option>
-                            <option>{fixture.away_team}</option>
-                        </select>
-
-                    </tr> */}
-                    </div>
-
-            })}
-            {/* {JSON.stringify(store.setFixtures)} */}
-
-            {showButton || <Button variant="contained" onClick={handleFetchfixtures}>Submit</Button>}
-                        <br /><br />
-            {/* <Button color="secondary" variant="contained" onClick={() => handlePostResults}>Add </Button> */}
+                            return <ResultsPostListItem key={fixture.id} allFixtures={store.setFixtures} fixture={fixture} className="table-center" />
+                        })}
+                    </TableBody>
+                </Table>}
+                </Paper>
+               
             </div>
 
         </div >

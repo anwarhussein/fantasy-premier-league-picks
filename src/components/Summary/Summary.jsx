@@ -1,8 +1,14 @@
 import { useDispatch } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
-import {useState } from 'react'
+import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Paper, Button, Container, Grid } from '@mui/material'
+import moment from 'moment';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 
 function Summary() {
@@ -15,20 +21,20 @@ function Summary() {
     const [showHeader, setShowHeader] = useState(false);
     const [showButton, setShowButton] = useState(true);
 
-    
+
     const predictionDate = (event) => {
         event.preventDefault();
-        const myDate =event.target.value
-    
-       setSelectDate(myDate)
-    } 
-    
-    const handleBack =() =>{
+        const myDate = event.target.value
+
+        setSelectDate(myDate)
+    }
+
+    const handleBack = () => {
         history.push('/info')
     }
-    const handleSubmitDate = () =>{
+    const handleSubmitDate = () => {
 
-        if(selectDate === ''){
+        if (selectDate === '') {
             alert('Please select you prediction date')
             return;
         }
@@ -36,56 +42,57 @@ function Summary() {
         setShowHeader(!showHeader);
         setShowButton(!showButton);
     }
-        
+
     const handleEditTeam = (match) => {
-       
-        dispatch({ type: 'EDIT_YOUR_TEAM', payload:match  })
-     
+
+        dispatch({ type: 'EDIT_YOUR_TEAM', payload: match })
+
         history.push('/edit')
     }
     return (
-        <div>
-           
+        <div >
 
-    
-            <p>Your picks has been Saved!</p>
+
+            <div className= "picks">
+            <h2>Your picks has been Saved!</h2>
             <h4>Click on your selected date to view your picks </h4>
-            <Paper elevation={12} sx={{m:2}}>
-            Select Date:<input type="date" value={selectDate} onChange={predictionDate} />
-           
-            {showHeader && <tr className="table">
+            </div>
+            <Paper elevation={12} sx={{ m: 2 }}>
+                Select Date:<input type="date" value={selectDate} onChange={predictionDate} />
 
-             
-                        <th>Date</th>
-                        <th>Matches</th>
-                        <th>Pick</th>
-                        <th>Action</th>
-                    </tr>
-              
-        }
-          
-            {store.setPrediction.map((game) => {
-                return <tr key={game.id}
+                {showHeader && <Table className="table">
 
-                   
-                         className="active-row">
-                            <td>{game.date}</td>
-                            <td>{game.home_team} vs {game.away_team}</td>
-                            <td>{game.winning_team}</td>
+                    <TableHead>
+                        <TableRow >
+                            <TableCell>Date</TableCell>
+                            <TableCell>Matches</TableCell>
+                            <TableCell>Pick</TableCell>
+                            <TableCell>Action</TableCell>
+                        </TableRow>
+                    </TableHead>
 
-                            <td><Button variant="contained" color="secondary" onClick={() => handleEditTeam(game)}>Edit</Button></td>
-                        
-                   
+                    <TableBody>
+                        {store.setPrediction.map((game) => {
+                            return <TableRow key={game.id}
 
-                </tr>
-              
-            })}
-            
 
-            {showButton &&<Button color="secondary" variant="contained" onClick={handleSubmitDate}>View</Button>}
+                                className="active-row">
+                                <TableCell>{moment(game.date).format('MM/DD/YYYY')}</TableCell>
+                                <TableCell>{game.home_team} vs {game.away_team}</TableCell>
+                                <TableCell>{game.winning_team}</TableCell>
 
-            <Button onClick={handleBack}color="primary" variant="contained">Back</Button>
-           
+                                <TableCell>
+                                    <Button variant="contained" color="secondary" onClick={() => handleEditTeam(game)}>Edit</Button></TableCell>
+
+
+
+                            </TableRow>
+                        })}
+                    </TableBody>
+                </Table>}
+                {showButton && <Button color="secondary" variant="contained" onClick={handleSubmitDate}>View</Button>}
+
+                <Button onClick={handleBack} color="primary" variant="contained">Back</Button>
             </Paper>
         </div>
     )

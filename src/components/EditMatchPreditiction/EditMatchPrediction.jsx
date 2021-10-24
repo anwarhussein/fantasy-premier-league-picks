@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import {useHistory} from 'react-router-dom'
 import { Paper, Button, Container, Grid } from '@mui/material'
+import moment from 'moment';
 
 function EditMatchPrediction() {
 
@@ -37,7 +38,8 @@ function EditMatchPrediction() {
                         </tr>  
             <tr>
             <td>
-            {store.setMatch.date}
+             {moment(store.setMatch.date).format('MM/DD/YYYY')}
+            {/* {store.setMatch.date.substring(0,10)} */}
             </td>
             <td>
             {store.setMatch.home_team} vs {store.setMatch.away_team}

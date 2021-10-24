@@ -4,6 +4,7 @@ import { Paper, Container, Grid } from '@mui/material';
 
 
 
+
 function PredictionDetail({ fixture, handleSelect }) {
 
 
@@ -11,7 +12,7 @@ function PredictionDetail({ fixture, handleSelect }) {
     return (
 
         <div >
-            <Paper style={{width: '40%', textAlign: 'center', margin: 'auto'}} elevation={12}>
+            <Paper className= "paper-hover" style={{width: '40%', textAlign:'center', margin: 'auto'}} elevation={12}>
                 <Container >
                 <div className='fixture' key={fixture.id}>
                     {fixture.home_team}  VS  {fixture.away_team}

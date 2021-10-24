@@ -20,8 +20,8 @@ function Prediction() {
 
   const handleSelect = (event, fixtureId) => {
 
-
     const teamPick = event.target.value
+   
     const pick = [...prediction, { teamPick, fixtureId }]
 
     setPrediction(pick)
@@ -29,7 +29,7 @@ function Prediction() {
   }
 
   const handlePostTeam = () => {
-
+    
     dispatch({ type: 'ADD_WINNING_TEAM', payload: prediction })
     history.push('/yours')
 
@@ -56,7 +56,9 @@ function Prediction() {
         
 
           <Grid item style={{margin: '10px', padding: '10px'}}>
-            <div className="date">Select Date<input type="date" value={searchDate} onChange={fixtureDates} />
+            <div className="date">Select Date<input      type="date" 
+            value={searchDate} 
+            onChange={fixtureDates} />
             </div>
           </Grid>
 

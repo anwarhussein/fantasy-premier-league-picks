@@ -1,8 +1,12 @@
 import React, { useEffect } from 'react'
 import useReduxStore from '../../hooks/useReduxStore';
 import { useDispatch } from 'react-redux';
-
-
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import { Paper, Container, Grid } from '@mui/material';
 
 
 function Winners() {
@@ -18,8 +22,30 @@ function Winners() {
 
     return (
         <div>
+            <h2> Winners so far</h2>
+            <Paper elevation={20}>
+            <Table>
+                <TableHead>
+                    <TableRow>
+                        <TableCell><h2>Name </h2></TableCell>
+                        <TableCell><h2>Points</h2></TableCell>
+                     
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {store.setWinners.map((user) => {
+                        return <TableRow>
+                            <TableCell>{user.username}</TableCell>
+                            <TableCell>{user.count}</TableCell>
 
-            <h3> Winners so far</h3>
+                        </TableRow>
+                    })}
+                </TableBody>
+            </Table>
+            </Paper>
+
+
+            {/* 
             <table>
                 <tr>
                     <th>
@@ -43,7 +69,7 @@ function Winners() {
                         </tr>
                     </tbody>
                 </table>
-            })}
+            })} */}
 
         </div>
     )

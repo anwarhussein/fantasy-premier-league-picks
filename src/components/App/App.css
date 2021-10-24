@@ -2,6 +2,8 @@ html,
 body,
 #react-root {
   height: 100%;
+  background-color: #656368;
+ 
 }
 
 #center-box{
@@ -36,6 +38,7 @@ Container
 
 .container {
   padding: 20px;
+  color: white;
 }
 
 /* --------------------------------------------------------------------------------
@@ -120,6 +123,7 @@ Form Treatment
   background-color: #efefef;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+  color: black;
 }
 
 input {
@@ -170,4 +174,21 @@ tr:nth-child(even) {
 .element{
   display: flex;
   
+}
+.paper-hover:hover {
+ background: linear-gradient(270deg,#FF2882,#963CFF 45%);
+ color: white;
+ font-weight: bold;
+}
+.heading{
+  font-weight: bold;
+}
+.rows:hover{
+  background: linear-gradient(270deg,#FF2882,#963CFF 45%);
+}
+.date{
+  color: white;
+}
+.picks{
+  color: white;
 }
