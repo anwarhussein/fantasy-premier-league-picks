@@ -21,7 +21,7 @@ function Winners() {
 
 
     return (
-        <div>
+        <div className="winners">
             <h2> Winners so far</h2>
             <Paper elevation={20}>
             <Table>

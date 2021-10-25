@@ -25,6 +25,7 @@ import EditMatchPrediction from '../EditMatchPreditiction/EditMatchPrediction';
 import ResultsPostList from '../ResultsPostList/ResultsPostList';
 import Success from '../Success/Success';
 import Winners from '../Winners/Winners';
+import Special from '../Special/Special';
 
 function App() {
   const dispatch = useDispatch();
@@ -74,6 +75,13 @@ function App() {
            path="/winners"
          >
            <Winners/>
+         </Route>
+
+         <Route 
+           exact
+           path="/special"
+         >
+           <Special/>
          </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.

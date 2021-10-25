@@ -192,3 +192,9 @@ tr:nth-child(even) {
 .picks{
   color: white;
 }
+.special{
+  color: white;
+}
+.winners{
+  color: white
+}
