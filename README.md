@@ -167,7 +167,15 @@ Customize this ReadMe and the code comments in this project to read less like a 
      -saga for the POST 
 
 [] Winners Page
-
      -Add a table to display winners/losers based on user
      -Displays the points amassed.
      -Add a button to take you to the home page.
+     
+![Screenshot (107)](https://user-images.githubusercontent.com/43694552/143669937-c790cc8a-9620-425a-a64b-465842274698.png)
+![Screenshot (108)](https://user-images.githubusercontent.com/43694552/143669938-814282fc-07e2-42fb-8827-3aab958ce6d7.png)
+![Screenshot (109)](https://user-images.githubusercontent.com/43694552/143669939-2d2b7252-8b79-4373-8873-5b1f76d49810.png)
+![Screenshot (110)](https://user-images.githubusercontent.com/43694552/143669940-5d461ec8-6ea3-4ed0-b0c5-27f989294b2b.png)
+![Screenshot (111)](https://user-images.githubusercontent.com/43694552/143669941-0e29cd1e-d5d7-4ea3-86f2-f6bee4545b3e.png)
+![Screenshot (112)](https://user-images.githubusercontent.com/43694552/143669942-e3c427b9-6c2d-4076-899c-94fdcfe1bc5b.png)
+![Screenshot (113)](https://user-images.githubusercontent.com/43694552/143669943-02a569a6-80b7-4c32-959a-9f71407b0c58.png)
+![Screenshot (115)](https://user-images.githubusercontent.com/43694552/143669944-f00269fe-0177-4bf6-bcf9-60d66e28cd18.png)
