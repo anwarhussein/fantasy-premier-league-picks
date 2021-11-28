@@ -25,7 +25,6 @@ const ResultsPostListItem = ({ fixture, allFixtures }) => {
         dispatch({ type: 'ADD_RESULTS', payload: { id: id, selectTeam: selectTeam } })
         setAddName(!addName);
 
-
     }
 
     const handleSelectTeam = (event) => {
@@ -36,11 +35,9 @@ const ResultsPostListItem = ({ fixture, allFixtures }) => {
 
     }
 
-
     return (
 
         <>
-
             <TableRow style={{ textAlign: "center" }}>
 
                 <TableCell> {moment(fixture.date).format('MM/DD/YYYY')}</TableCell>
@@ -50,7 +47,7 @@ const ResultsPostListItem = ({ fixture, allFixtures }) => {
                     <option>{fixture.home_team}</option>
                     <option>{fixture.away_team}</option>
                 </select>
-                    <Button color="secondary" variant="contained" onClick={() => handlePostResults(fixture.id)}>{addName? 'Add': 'Done'}</Button>
+                    <Button color="secondary" variant="contained"  onClick={() => handlePostResults(fixture.id)}>{addName? 'Add': 'Done'}</Button>
                 </TableCell>
             </TableRow>
 

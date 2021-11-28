@@ -52,7 +52,6 @@ function Summary() {
     return (
         <div >
 
-
             <div className= "picks">
             <h2>Your picks has been Saved!</h2>
             <h4>Click on your selected date to view your picks </h4>
@@ -83,8 +82,6 @@ function Summary() {
 
                                 <TableCell>
                                     <Button variant="contained" color="secondary" onClick={() => handleEditTeam(game)}>Edit</Button></TableCell>
-
-
 
                             </TableRow>
                         })}

@@ -7,8 +7,6 @@ import { Paper, Container, Grid } from '@mui/material';
 
 function PredictionDetail({ fixture, handleSelect }) {
 
-
-
     return (
 
         <div >

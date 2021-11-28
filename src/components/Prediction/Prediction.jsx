@@ -17,6 +17,7 @@ function Prediction() {
 
   const [searchDate, setSearchDate] = useState('')
   const [prediction, setPrediction] = useState([])
+  const [show, setShow] = useState(false)
 
   const handleSelect = (event, fixtureId) => {
 
@@ -25,7 +26,7 @@ function Prediction() {
     const pick = [...prediction, { teamPick, fixtureId }]
 
     setPrediction(pick)
-    console.log(pick);
+
   }
 
   const handlePostTeam = () => {
@@ -40,35 +41,26 @@ function Prediction() {
     setSearchDate(newDate)
 
     dispatch({ type: 'FETCH_DATE_FIXTURE', payload: newDate });
+    setShow(!show)
   }
 
   return (
-    <> 
-    <div style={{color:"white",marginLeft:"20px"}}><h4>Please remember the date you select, you'll need it later if you choose to make changes.</h4></div>
+    <>
+      <div style={{ color: "white", marginLeft: "20px" }}><h4>Please remember the date you select, you'll need it later if you choose to make changes.</h4></div>
 
       <div className="container">
 
         <Paper elevation={12}>
           <Grid container style={{ margin: '10px', padding: '10px' }} className="parent-grid">
 
-            <div style={{marginTop:"20px"}}><h2>Start your prediction</h2></div>
-           
-
-
+            <div style={{ marginTop: "20px" }}><h2>Start your prediction</h2></div>
 
             <Grid item style={{ margin: '10px', padding: '10px' }}>
-              <div className="date">Select Date<input type="date"
+              <div className="date" style={{marginLeft: "40px"}}>Select Date<input type="date"
                 value={searchDate}
                 onChange={fixtureDates} />
               </div>
             </Grid>
-
-
-            <Grid item style={{ margin: '10px', padding: '10px' }}>
-              <Button className="save-button" onClick={handlePostTeam} color='secondary' variant='contained'>Save</Button>
-            </Grid>
-
-
             <br /><br />
 
 
@@ -82,6 +74,11 @@ function Prediction() {
             </Container>
 
           </Grid>
+
+          {show && <Grid item style={{ marginLeft: '460px', padding: '10px' }}>
+            <Button className="save-button" onClick={handlePostTeam}
+             color='secondary' variant='contained' style={{ width: "300px" }}>Save</Button>
+          </Grid>}
 
         </Paper>
       </div >
