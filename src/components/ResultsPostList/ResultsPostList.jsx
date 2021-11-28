@@ -57,7 +57,8 @@ function ResultsPostList() {
                 <Paper elevation={12}>
                 {showButton &&<Table>
                     <TableHead  className="heading">
-                        <TableRow>
+                        <TableRow style={{ height: "50px",
+  verticalAlign: "bottom"}}>
                             <TableCell><h2>Date</h2> </TableCell>
                             <TableCell><h2>Match</h2></TableCell>
                             <TableCell><h2>Pick</h2></TableCell>

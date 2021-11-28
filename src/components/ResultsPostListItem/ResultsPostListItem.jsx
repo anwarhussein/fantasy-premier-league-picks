@@ -36,11 +36,6 @@ const ResultsPostListItem = ({ fixture, allFixtures }) => {
 
     }
 
-    // useEffect(() => {
-    //     setLocalAllFixtures(allFixtures)
-    //     console.log(allFixtures);
-
-    // }, [])
 
     return (
 
@@ -50,12 +45,12 @@ const ResultsPostListItem = ({ fixture, allFixtures }) => {
 
                 <TableCell> {moment(fixture.date).format('MM/DD/YYYY')}</TableCell>
                 <TableCell>{fixture.home_team} Vs {fixture.away_team}</TableCell>
-                <TableCell><select id={fixture.id} className="select" onChange={handleSelectTeam}>
+                <TableCell ><select id={fixture.id} className="select" onChange={handleSelectTeam}>
                     <option>select team</option>
                     <option>{fixture.home_team}</option>
                     <option>{fixture.away_team}</option>
                 </select>
-                    <Button color="secondary" variant="contained" onClick={() => handlePostResults(fixture.id)}>{addName? 'Add': 'Done!'}</Button>
+                    <Button color="secondary" variant="contained" onClick={() => handlePostResults(fixture.id)}>{addName? 'Add': 'Done'}</Button>
                 </TableCell>
             </TableRow>
 

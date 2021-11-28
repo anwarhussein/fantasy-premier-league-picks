@@ -21,7 +21,7 @@ function Prediction() {
   const handleSelect = (event, fixtureId) => {
 
     const teamPick = event.target.value
-   
+
     const pick = [...prediction, { teamPick, fixtureId }]
 
     setPrediction(pick)
@@ -29,7 +29,7 @@ function Prediction() {
   }
 
   const handlePostTeam = () => {
-    
+
     dispatch({ type: 'ADD_WINNING_TEAM', payload: prediction })
     history.push('/yours')
 
@@ -43,82 +43,83 @@ function Prediction() {
   }
 
   return (
+    <> 
+    <div style={{color:"white",marginLeft:"20px"}}><h4>Please remember the date you select, you'll need it later if you choose to make changes.</h4></div>
 
-    <div className="container">
+      <div className="container">
 
-      <Paper elevation={12}>
-      <Grid container style={{margin: '10px', padding: '10px'}} className="parent-grid">
+        <Paper elevation={12}>
+          <Grid container style={{ margin: '10px', padding: '10px' }} className="parent-grid">
 
-        <h2>Start your prediction</h2>
-        <h4>Please remember the date you select, you'll need it later if you choose to make changes.</h4>
-
-
-        
-
-          <Grid item style={{margin: '10px', padding: '10px'}}>
-            <div className="date">Select Date<input      type="date" 
-            value={searchDate} 
-            onChange={fixtureDates} />
-            </div>
-          </Grid>
+            <div style={{marginTop:"20px"}}><h2>Start your prediction</h2></div>
+           
 
 
-          <Grid item style={{margin: '10px', padding: '10px'}}>
-            <Button className="save-button" onClick={handlePostTeam} color='secondary' variant='contained'>Save</Button>
-          </Grid>
-        
+
+            <Grid item style={{ margin: '10px', padding: '10px' }}>
+              <div className="date">Select Date<input type="date"
+                value={searchDate}
+                onChange={fixtureDates} />
+              </div>
+            </Grid>
+
+
+            <Grid item style={{ margin: '10px', padding: '10px' }}>
+              <Button className="save-button" onClick={handlePostTeam} color='secondary' variant='contained'>Save</Button>
+            </Grid>
+
 
             <br /><br />
 
 
-        <Container style={{margin: '10px', padding: '10px'}}>
-            {store.selectedDate.map((fixture) => {
-              return <PredictionDetail handleSelect={handleSelect}
+            <Container style={{ margin: '10px', padding: '10px' }}>
+              {store.selectedDate.map((fixture) => {
+                return <PredictionDetail handleSelect={handleSelect}
 
-                key={fixture.id} fixture={fixture} />
+                  key={fixture.id} fixture={fixture} />
 
-            })}
-        </Container>
+              })}
+            </Container>
 
-        </Grid>
+          </Grid>
 
-      </Paper>
-    </div >
+        </Paper>
+      </div >
+    </>
 
 
   );
 }
 
 export default Prediction;
-                    
 
-           
 
-           
 
-           
 
-           
 
-           
 
-           
 
-           
 
-           
 
-           
 
-          
 
-          
 
-          
 
-          
 
-          
 
-          
-          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
